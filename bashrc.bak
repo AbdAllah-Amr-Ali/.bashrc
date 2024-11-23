@@ -1,0 +1,37 @@
+# .bashrc
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+PS1='[\u@\h \W]\$ '
+
+
+
+#xbps
+alias i='doas xbps-install -S'
+alias u='i; doas xbps-install -u xbps; doas xbps-install -u'
+alias q='doas xbps-query -Rs'
+alias r='doas xbps-remove -R'
+
+#shell
+alias la='ll -a'
+alias ll='ls -l'
+alias ls='ls --color=auto'
+
+#apps
+alias vi='doas vim'
+alias discord='~/Downloads/Discord/Discord '
+
+#system
+alias rb='doas reboot'
+alias sd='doas poweroff'
+alias crn='doas sv up dbus; doas sv up NetworkManager; doas nmcli device wifi connect "Ronin" password "ronin1086"'
+alias bub='cp ~/.bashrc ~/bashrc.bak'
+alias hz='xrandr | grep -A 1 connected | tail -n 1'
+alias clk='date +"%I:%M:%S %p"'
+alias bds='vi /var/lib/bluetooth/CC:15:31:96:D8:85/8C:64:A2:EC:DA:63/info'
+alias br-='brightnessctl set 20%-'
+alias br='brightnessctl set +10%'
+alias ub='doas rfkill unblock bluetooth'
+export XDG_RUNTIME_DIR="/run/user/$(id -u)"
